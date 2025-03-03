@@ -3,6 +3,7 @@ package com.example.SpringBoot3.services;
 import com.example.SpringBoot3.dto.MessageDTO;
 import com.example.SpringBoot3.entities.MessageEntity;
 import com.example.SpringBoot3.repositories.GreetingRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -71,6 +72,16 @@ public class GreetingService {
         m2.setId(m.getId());
 
         return m2;
+    }
+
+    public String delete(Long id){
+
+        MessageEntity m = greetingRepository.findById(id).orElseThrow(() -> new RuntimeException("Cannot find message with given id"));
+
+        greetingRepository.delete(m);
+
+        return "Message Deleted";
+
     }
 
 }
