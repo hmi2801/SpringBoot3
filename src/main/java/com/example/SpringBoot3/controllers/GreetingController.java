@@ -2,6 +2,7 @@ package com.example.SpringBoot3.controllers;
 
 
 import com.example.SpringBoot3.dto.MessageDTO;
+import com.example.SpringBoot3.repositories.GreetingRepository;
 import com.example.SpringBoot3.services.GreetingService;
 import jakarta.websocket.server.PathParam;
 import org.springframework.web.bind.annotation.*;
@@ -15,9 +16,8 @@ public class GreetingController {
     public GreetingController(GreetingService greetingService) {
         this.greetingService = greetingService;
     }
-    //UC1
-
-    @GetMapping("/get")
+        //UC1
+        @GetMapping("/get")
         public String getGreetings(){
             return "{\"message\": \"Hello from GET Request!\"}";
         }
@@ -33,7 +33,6 @@ public class GreetingController {
         }
 
         //UC2
-
         @GetMapping("/service")
         public String serviceGreetings(){
             return greetingService.getGreetings();
@@ -50,6 +49,12 @@ public class GreetingController {
                 return "Hello "+lastName+" Welcome to Bridgelabz";
             else
                 return "Hello, Welcome to Bridgelabz";
+        }
+
+        //UC4
+        @PostMapping("/save")
+        public MessageDTO save(@RequestBody MessageDTO message){
+            return greetingService.saveMessage(message);
         }
 
 }
