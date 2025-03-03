@@ -14,6 +14,9 @@ public class MessageEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
 
+    public MessageEntity(){
+    }
+
     public MessageEntity(String message) {
         this.message = message;
         id = null;

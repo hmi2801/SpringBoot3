@@ -57,4 +57,12 @@ public class GreetingController {
             return greetingService.saveMessage(message);
         }
 
+        //UC5
+        @GetMapping("/find/{id}")
+        public MessageDTO findById(@PathVariable Long id){
+
+            return greetingService.findById(id);
+
+        }
+
 }
