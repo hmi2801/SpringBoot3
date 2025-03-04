@@ -63,6 +63,12 @@ public class GreetingController {
 
     }
 
+    //UC6
+    @GetMapping("/listAll")
+    public List<MessageDTO> listAll(){
+        return greetingService.listAll();
+    }
+
 
 
 
