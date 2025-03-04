@@ -27,4 +27,11 @@ public class UserController {
         return authenticationService.register(user);
     }
 
+
+    //UC10 --> For User Login
+    @PostMapping(path ="/login")
+    public String login(@RequestBody LoginDTO user){
+        return authenticationService.login(user);
+    }
+
 }
