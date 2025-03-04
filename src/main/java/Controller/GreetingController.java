@@ -29,6 +29,12 @@ public class GreetingController {
         return "{\""+message+": \"Hello from PUT Request!\"}";
     }
 
+    //UC2
+    @GetMapping("/service")
+    public String serviceGreetings(){
+        return greetingService.getGreetings();
+    }
+
 
 
 }
